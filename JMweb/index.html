@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JM's Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    .navbar {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: linear-gradient(to top, #ffffff 60%, #5f98bb 100%);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 7%;
+}
+section {
+  scroll-margin-top: 100px; /* Adjust this value to match your navbar height */
+}
+.section-scroll {
+  scroll-margin-top: 100px; /* Adjust as needed */
+}
+    body {
+      background-image: url('background.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+    .blog-card {
+      background: white;
+      background: linear-gradient(
+        #ffffff 60%, #5f98bb 100%
+      );
+      border-radius: 15px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .blog-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .blog-content {
+      font-size: 1rem;
+      color: #555;
+    }
+    .btn-read-more {
+      background-color: rgb(57, 11, 141);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-read-more:hover {
+      background-color: blue;
+    }
+    .navbar a.text-dark.text-decoration-none {
+  position: relative;
+  transition: color 0.2s;
+}
+
+.navbar a.text-dark.text-decoration-none::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: skyblue;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+}
+
+.navbar a.text-dark.text-decoration-none:hover::after {
+  width: 100%;
+}
+.banner {
+  padding-top: 50px;
+  z-index: 1050;
+}
+.btn-success {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: rgb(57, 11, 141);
+    --bs-btn-border-color: rgb(57, 11, 141);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: blue;
+    --bs-btn-hover-border-color: oceanblue;
+    --bs-btn-focus-shadow-rgb: 60, 153, 110;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #rgb(57, 11, 141);;
+    --bs-btn-active-border-color: blue;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: rgb(57, 11, 141);;
+    --bs-btn-disabled-border-color: blue;
+}
+.btn-outline-success {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: rgb(57, 11, 141);
+    --bs-btn-border-color: rgb(57, 11, 141);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: blue;
+    --bs-btn-hover-border-color: oceanblue;
+    --bs-btn-focus-shadow-rgb: 60, 153, 110;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #rgb(57, 11, 141);;
+    --bs-btn-active-border-color: blue;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: rgb(57, 11, 141);;
+    --bs-btn-disabled-border-color: blue;
+}
+p{
+  text-indent: 2rem;
+}
+
+  </style>
+</head>
+
+<body class="container py-4">
+<header class="mb-4">
+  <nav class="navbar" style="padding: 1rem; display: flex; align-items: center; padding-right: 50px; z-index: 1020;">
+    <a href="#">
+      <img src="logo.png" alt="Blog Logo" class="img-fluid" style="max-height:40px; width:auto; margin-right: 0px;padding-left: 40px;">
+    </a><span style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 20px;font-weight: bold;">J M ' s  B L O G</span>
+    <div style="display: flex; gap: 30px; font-size: 20px;">
+      <a href="#" class="text-dark text-decoration-none">Home</a>
+      <a href="#about" class="text-dark text-decoration-none">About</a>
+      <a href="#blogs" class="text-dark text-decoration-none">Blogs</a>
+      <a href="#contact" class="text-dark text-decoration-none">Contact Me</a>
+    </div>
+  </nav>
+</header>
+  
+ <!-- Landing section -->
+<section id="banner" 
+  class="d-flex flex-column justify-content-center align-items-center text-center mb-10"
+  style="min-height: 70vh; background: linear-gradient(to bottom, #ffffffd2 60%, #b2dfdb 100%); border-radius: 20px; box-shadow: 0 8px 32px rgba(60,60,60,0.08); position: relative; overflow: hidden; margin-top: 110px;margin-bottom: 100px; padding-top: 40px;">
+  <h1 style="font-family: 'Georgia', serif; color: #03074b;font-size: 50px;">Welcome to The Communicator's Hub! Where Words Spark Connection!
+
+</h1>
+  <p class="text-muted" style="font-family: 'Georgia', serif; color: #03074b;font-size: 25px;">
+    Say It with Purpose. Hear It with Meaning.
+
+  </p>
+  <a href="#about" class="btn btn-success mt-3 px-4 py-2" style="background-color: rgb(57, 11, 141); border: none;">
+    Explore
+  </a>
+  <!-- Optional: Add floating Ghibli-style elements for extra touch -->
+  <img src="https://pngimg.com/d/cloud_PNG16.png" alt="Cloud" style="position: absolute; left: 5%; top: 10%; width: 80px; opacity: 0.7;">
+  <img src="https://pngimg.com/d/cloud_PNG16.png" alt="Cloud" style="position: absolute; right: 8%; bottom: 15%; width: 60px; opacity: 0.5;">
+</section>
+
+<!-- Ghibli-style About Section -->
+<section id="about" class="py-5 mb-10 mt-12" style="background: linear-gradient(to bottom, #ffffffd2 60%, #b2dfdb 100%); border-radius: 20px; box-shadow: 0 8px 32px rgba(60,60,60,0.08); min-height: 70vh;box-sizing: border-box;margin-top: 120px;padding-top: 50px;margin-bottom: 110px;">
+ <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center gap-5 " style="padding-left: 30px;padding-right: 30px;">
+    <img src="jmghibili.png" alt="Ghibli Character" class="rounded-circle shadow" style="width: 300px; height: 300px; object-fit: cover; border: 3px solid #fff;">
+    <div>
+      <h2 class="fw-bold mb-3" style="font-family: 'Georgia', serif; color: #03074b;text-align: center;">About Me</h2>
+      <p style="font-size: 18px; color: #03074b; font-family: 'Georgia', serif;text-align: justify;margin-right: 20px;margin-left:none ;">
+       Welcome, everyone, to my personal blog! My name is John Emmanuel Calanao, and I'm a first-year student pursuing a Bachelor of Arts degree in Psychology at the University of Southern Mindanao.  
+       I've created this blog as a dedicated space to showcase my journey through my Purposive Communication class.  
+       Here, you'll find a collection of my completed assignments, projects, and reflections, offering a comprehensive overview of my progress and learning experiences. 
+        I'll be sharing not only the practical aspects of the course but also my personal growth, highlighting the intellectual and emotional development I've undergone.
+        Expect a mix of academic work and personal insights, providing a holistic view of my engagement with the subject.
+ 
+      </p>
+      <p style="font-size: 18px; color: #03074b;font-family: Georgia, 'Times New Roman', Times, serif;text-align: justify;margin-right: 20px;">
+       This blog is more than just a repository for my assignments; it's a testament to my learning process.  Each entry will delve into the challenges I faced, the strategies I employed, and the valuable lessons I've gleaned along the way. 
+        I aim to provide a transparent and honest account of my academic journey, sharing both my successes and setbacks.
+          My hope is that this blog will not only serve as a record of my work but also inspire others to reflect on their own learning experiences and embrace the challenges of personal and academic growth. 
+           I invite you to join me on this journey and explore the world of effective communication through my eyes.</p>
+      
+      <div class="text-left mt-8" style="letter-spacing:1px; font-size: 18px; color: rgb(57, 11, 141);">
+    Know Me More!
+  </div>
+
+
+          <!-- Socials -->
+      <div class="mt-4 d-flex gap-4 align-items-center">
+        <a href="https://www.facebook.com/profile.php?id=100078933019471" target="_blank" class="text-dark fs-3" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/jmcalanao?igsh=YjFvZGNscXQyaTBw" target="_blank" class="text-dark fs-3" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="tel:+639512073965" class="text-dark fs-3" aria-label="Phone"><i class="bi bi-telephone"></i></a>
+        <a href="mailto:jmcalanao49@gmail.com" class="text-dark fs-3" aria-label="Email"><i class="bi bi-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blogs Section -->
+<section id="blogs" class="py-3 mb-5" style="background: #fffbe7; border-radius: 20px; box-shadow: 0 8px 32px rgba(60,60,60,0.08);">
+   <div class="container">
+    <div class="text-center mb-2">
+      <h2 class="fw-bold" style="font-family: 'Georgia', serif; color: #03074b;">My Blog Posts</h2>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Post Card (separate from the blogs section) -->
+<div class="container mb-5">
+  <div class="blog-card p-4 py-10" style="border-radius: 20px;margin-bottom: 100px;">
+    <div class="d-flex flex-column flex-md-row align-items-left mb-10">
+      <img src="jmghibili.png" alt="Author" class="rounded-circle shadow me-md-4 mb-3 mb-md-0" style="width: 100px; height: 100px; object-fit: cover; border: 4px solid #f3e5abd4;">
+      <div>
+        <h3 class="mb-1" style="font-family: 'Georgia', serif; color: rgb(57, 11, 141);padding-top: 20px;">Activity 1: USM's Guiding Principles – A Foundation for Understanding
+ </h3>
+        <div class="text-muted" style="font-size: 1rem;">by John Emmanuel C. Calanao</div>
+      </div>
+    </div>
+    <div class="blog-content" style="font-size: 1.1rem; color: #555;text-align: justify;">
+      <p>
+        USM's vision, mission, and core values weren't just words on a page; they resonated with a deeper understanding of the institution's ethos.  The emphasis on global competitiveness wasn't just about career success; it was about responsible global citizenship, demanding effective communication strategies that transcend geographical and cultural barriers.  The focus on moral responsiveness struck a chord, highlighting the ethical dimensions of communication and the need for responsible discourse.
+        This activity wasn't just about learning facts; it was about connecting with the institution's identity and understanding how its values influence its interactions with the world.
+      </p>
+  </div>
+  </div>
+
+  <!-- Blog Post Card (separate from the blogs section) -->
+<div class="container mb-5">
+  <div class="blog-card p-4 py-10" style="border-radius: 20px;margin-bottom: 100px;">
+    <div class="d-flex flex-column flex-md-row align-items-left mb-10">
+      <img src="jmghibili.png" alt="Author" class="rounded-circle shadow me-md-4 mb-3 mb-md-0" style="width: 100px; height: 100px; object-fit: cover; border: 4px solid #f3e5abd4;">
+      <div>
+        <h3 class="mb-1" style="font-family: 'Georgia', serif; color: rgb(57, 11, 141);padding-top: 20px;">Activity 2: My Name – A Story Woven into My Identity
+        <div class="text-muted" style="font-size: 1rem;">by John Emmanuel C. Calanao</div>
+      </div>
+    </div>
+    <div class="blog-content" style="font-size: 1.1rem; color: #555;text-align: justify;">
+        <p>
+        The origin of my name wasn't simply a historical fact; it was a window into my family's history and beliefs.  Learning about the biblical references and family traditions tied to my name ("John Emmanuel") provided a deeper appreciation for my heritage and the significance of names in shaping individual identities.
+         The nickname "Em" reflects a desire for a more approachable identity, highlighting the adaptability needed in purposive communication for varying contexts. 
+         This self-reflection highlighted how personal narrative informs communication styles and shapes how I present myself to the world.  
+         It made me realize the importance of understanding my own narrative to communicate effectively.
+      </p>
+  </div>
+  </div>
+
+<!-- Blog Post Card (swith image) -->
+<div class="container mb-5">
+  <div class="blog-card p-4 py-10" style="border-radius: 20px; margin-bottom: 100px;">
+    
+    <!-- Author Section -->
+    <div class="d-flex flex-column flex-md-row align-items-start mb-4">
+      <img src="jmghibili.png" alt="Author" class="rounded-circle shadow me-md-4 mb-3 mb-md-0" 
+        style="width: 100px; height: 100px; object-fit: cover; border: 4px solid #f3e5abd4;">
+      <div>
+        <h3 class="mb-1" style="font-family: 'Georgia', serif; color: rgb(57, 11, 141); padding-top: 20px;">
+         Activity 3:  Visual Culture – Seeing Beyond the Surface- Japanese Culture 
+        </h3>
+        <div class="text-muted" style="font-size: 1rem;">by John Emmanuel C. Calanao</div>
+      </div>
+    </div>
+
+    <!-- Blog Content with Image on Right -->
+    <div class="d-flex flex-column flex-md-row align-items-start">
+  <div class="blog-content flex-grow-1" style="font-size: 1.1rem; color: #555;">
+    <p style="text-indent: 2em; text-align: justify;">
+       The Japanese Culture would have served as a powerful reminder that communication isn't solely verbal.
+      Visual cues, symbols, and cultural aesthetics convey powerful messages, demanding visual literacy and a sensitivity to different cultural interpretations. This exercise highlighted the importance of non-verbal communication and the need to consider the cultural context of visual representations.
+      I realized that effective communication often relies on a subtle understanding of unspoken cues.
+    </p>
+
+    <div class="more-text" style="display: none;">
+      <p>
+       
+      </p>
+      <button class="btn btn-outline-success see-less-btn mt-2" onclick="hideImage()">See less</button>
+    </div>
+    <button class="btn btn-success see-more-btn mt-2" onclick="showImage()">See more</button>
+  </div>
+
+  <!-- Image on Right (Split into Two Halves) -->
+  <div class="ms-md-4 mt-4 mt-md-0 text-center" style="min-width:500px;">
+    <!-- Top Half (Always Visible) -->
+    <img src="infographic2.jpg" alt="Infographic Top Half" class="img-fluid rounded shadow"
+     style="width: 300px; max-width: 100%; border-radius: 15px; display: block; margin-bottom: 0;margin-left: 70px;">
+
+
+    <!-- Bottom Half (Initially Hidden) -->
+    <img src="infographic2cont.jpg" alt="Infographic Bottom Half" class="img-fluid rounded shadow bottomImage"
+      style="width: 300px; max-width: 100%; border-radius: 15px; display: none;margin-left: 70px;">
+  </div>
+</div>
+
+<script>
+function showImage() {
+  document.getElementById("bottomImage").style.display = "block"; // Show bottom half
+}
+
+function hideImage() {
+  document.getElementById("bottomImage").style.display = "none"; // Hide bottom half again
+}
+</script>
+
+  </div>
+</div>
+
+<!-- Blog Post Card (swith image) -->
+<div class="container mb-5">
+  <div class="blog-card p-4 py-10" style="border-radius: 20px; margin-bottom: 100px;">
+    
+    <!-- Author Section -->
+    <div class="d-flex flex-column flex-md-row align-items-start mb-4">
+      <img src="jmghibili.png" alt="Author" class="rounded-circle shadow me-md-4 mb-3 mb-md-0" 
+        style="width: 100px; height: 100px; object-fit: cover; border: 4px solid #f3e5abd4;">
+      <div>
+        <h3 class="mb-1" style="font-family: 'Georgia', serif; color: rgb(57, 11, 141); padding-top: 20px;">
+       Activity 4:  "Amor y Tradición" – Navigating Cultural Differences
+        </h3>
+        <div class="text-muted" style="font-size: 1rem;">by John Emmanuel C. Calanao</div>
+      </div>
+    </div>
+
+    <!-- Blog Content with Image on Right -->
+    <div class="d-flex flex-column flex-md-row align-items-start">
+  <div class="blog-content flex-grow-1" style="font-size: 1.1rem; color: #555;">
+    <p style="text-indent: 2em; text-align: justify;">
+       The Mexican family script wasn't just about a romantic plot; it was a masterclass in intercultural communication.  
+        Witnessing the clash of cultural norms during Elias' marriage proposal highlighted the potential for misunderstandings and the importance of cultural sensitivity.  
+        However, the resolution demonstrated the power of empathy, patience, and a willingness to learn.  This activity wasn't just about identifying problems; it was about finding solutions and developing strategies for navigating intercultural  challenges.
+         It reinforced the crucial need for active listening, clear articulation, and a genuine desire to bridge cultural divides.    
+    </p>
+
+  </div>
+  <!-- Image on Right  -->
+  <div class="ms-md-4 mt-4 mt-md-0 text-center" style="min-width:500px;">
+    <img src="activity4.jpg" alt="Infographic Top Half" class="img-fluid rounded shadow"
+     style="width: 400px; max-width: 100%; border-radius: 15px; display: block; margin-bottom: 0;margin-left: 40px;">
+
+
+  </div>
+</div>
+  </div>
+
+  <!-- Blog Post Card (swith image) -->
+<div class="container mb-5">
+  <div class="blog-card p-4 py-10" style="border-radius: 20px; margin-bottom: 100px;">
+    
+    <!-- Author Section -->
+    <div class="d-flex flex-column flex-md-row align-items-start mb-4">
+      <img src="jmghibili.png" alt="Author" class="rounded-circle shadow me-md-4 mb-3 mb-md-0" 
+        style="width: 100px; height: 100px; object-fit: cover; border: 4px solid #f3e5abd4;">
+      <div>
+        <h3 class="mb-1" style="font-family: 'Georgia', serif; color: rgb(57, 11, 141); padding-top: 20px;">
+         Activity 5: Social Issues
+        </h3>
+        <div class="text-muted" style="font-size: 1rem;">by John Emmanuel C. Calanao</div>
+      </div>
+    </div>
+    <!-- Blog Content with Image on Right -->
+    <div class="d-flex flex-column flex-md-row align-items-start">
+  <div class="blog-content flex-grow-1" style="font-size: 1.1rem; color: #555;">
+    <p style="text-indent: 2em; text-align: justify;">
+    This election season feels different, doesn't it?  The amount of information—and misinformation—flying around is overwhelming.  I've caught myself several times about to share something I saw online, only to pause and think, "Wait a minute...is this really true?"  That's the struggle, isn't it?  We want to be informed, but we also need to be discerning.  So, I've been trying to be more mindful.  I check multiple sources, I look at who's sharing the information, and I pay attention to the language used—is it designed to provoke an emotional response?  
+    </p>
+
+    <div class="more-text" style="display: none;">
+      <p>
+         It's not always easy; sometimes, I still get caught up in the moment.  But I'm learning to slow down, to question what I see, and to resist the urge to share unverified information.  It's a constant process, a daily battle against the noise, but it's a battle worth fighting.  Because our votes matter, and those votes should be based on truth, not on cleverly crafted lies.  This election, I'm committed to doing my part to fight misinformation, one fact-check at a time.
+      </p>
+      <button class="btn btn-outline-success see-less-btn mt-2" onclick="hideImage()">See less</button>
+    </div>
+    <button class="btn btn-success see-more-btn mt-2" onclick="showImage()">See more</button>
+  </div>
+
+  <!-- Image on Right (Split into Two Halves) -->
+  <div class="ms-md-4 mt-4 mt-md-0 text-center" style="min-width:500px;">
+    <!-- Top Half (Always Visible) -->
+    <img src="infographic3.jpg" alt="Infographic Top Half" class="img-fluid rounded shadow"
+     style="width: 300px; max-width: 100%; border-radius: 15px; display: block; margin-bottom: 0;margin-left: 70px;">
+
+
+    <!-- Bottom Half (Initially Hidden) -->
+    <img src="infographic3cont.jpg" alt="Infographic Bottom Half" class="img-fluid rounded shadow bottomImage"
+      style="width: 300px; max-width: 100%; border-radius: 15px; display: none;margin-left: 70px;">
+  </div>
+</div>
+
+<script>
+function showImage() {
+  document.getElementById("bottomImage").style.display = "block"; // Show bottom half
+}
+
+function hideImage() {
+  document.getElementById("bottomImage").style.display = "none"; // Hide bottom half again
+}
+</script>
+
+  </div>
+</div>
+
+
+ <!-- Blog Post Card (swith image) -->
+<div class="container mb-5">
+  <div class="blog-card p-4 py-10" style="border-radius: 20px; margin-bottom: 100px;">
+    
+    <!-- Author Section -->
+    <div class="d-flex flex-column flex-md-row align-items-start mb-4">
+      <img src="jmghibili.png" alt="Author" class="rounded-circle shadow me-md-4 mb-3 mb-md-0" 
+        style="width: 100px; height: 100px; object-fit: cover; border: 4px solid #f3e5abd4;">
+      <div>
+        <h3 class="mb-1" style="font-family: 'Georgia', serif; color: rgb(57, 11, 141); padding-top: 20px;">
+     Activity 6: Resume and Application Letter – Crafting My Professional Narrative
+        </h3>
+        <div class="text-muted" style="font-size: 1rem;">by John Emmanuel C. Calanao</div>
+      </div>
+    </div>
+    <!-- Blog Content Activity 6 with Image on Right -->
+    <div class="d-flex flex-column flex-md-row align-items-start">
+  <div class="blog-content flex-grow-1" style="font-size: 1.1rem; color: #555;">
+    <p style="text-indent: 2em; text-align: justify;">
+      Crafting my resume and application letter felt like constructing a narrative, highlighting my skills and experiences in a persuasive way.  
+      It wasn't just about listing accomplishments; it was about strategically selecting and presenting information to connect with the employer's needs and values. 
+      This practical exercise emphasized the critical role of clear, concise, and compelling writing in professional communication.    
+      I learned that even seemingly simple documents like a resume require meticulous attention to detail and a deep understanding of my target audience. 
+    </p>
+  </div>
+
+  <!-- Image on Right with Arrow -->
+  <div class="ms-md-4 mt-4 mt-md-0 text-center position-relative" style="min-width:500px;">
+    <img id="activity6-img" src="resume.jpg" alt="Resume" class="img-fluid rounded shadow"
+      style="width: 450px; max-width: 100%; border-radius: 15px; display: block;">
+    <!-- Arrow Button -->
+    <button id="activity6-arrow" class="btn btn-light position-absolute"
+     style="top: 50%; right: -40px; transform: translateY(-50%); z-index:2;">
+      <i class="bi bi-arrow-right" style="font-size: 1rem;"></i>
+    </button>
+  </div>
+</div>
+  </div>
+</div>
+
+<!-- Blog Post Card (swith image) -->
+<div class="container mb-5">
+  <div class="blog-card p-4 py-10" style="border-radius: 20px; margin-bottom: 100px;">
+    
+    <!-- Author Section -->
+    <div class="d-flex flex-column flex-md-row align-items-start mb-4">
+      <img src="jmghibili.png" alt="Author" class="rounded-circle shadow me-md-4 mb-3 mb-md-0" 
+        style="width: 100px; height: 100px; object-fit: cover; border: 4px solid #f3e5abd4;">
+      <div>
+        <h3 class="mb-1" style="font-family: 'Georgia', serif; color: rgb(57, 11, 141); padding-top: 20px;">
+         Activity 7: Stronger than Iron: family, culture tradition 
+        </h3>
+        <div class="text-muted" style="font-size: 1rem;">by John Emmanuel C. Calanao</div>
+      </div>
+    </div>
+
+<!-- Blog Content with Image on Right -->
+    <div class="d-flex flex-column flex-md-row align-items-start">
+  <div class="blog-content flex-grow-1" style="font-size: 1.1rem; color: #555;">
+    <p style="text-indent: 2em; text-align: justify;">
+      My essay on family traditions wasn't simply a descriptive piece; it was a complex exploration of the interplay between tradition, identity, and progress. 
+      While I celebrated my family’s achievements, I also acknowledged the potential for traditions to become restrictive. 
+      This reflection highlighted the importance of critical thinking and recognizing both the positive and negative impacts of cultural practices on personal growth.
+      It underscored the importance of communication in navigating these complexities within a family and community.
+    </p>
+
+    <div class="more-text" style="display: none;">
+      <p>
+       
+      </p>
+      <button class="btn btn-outline-success see-less-btn mt-2" onclick="hideImage()">See less</button>
+    </div>
+    <button class="btn btn-success see-more-btn mt-2" onclick="showImage()">See more</button>
+  </div>
+
+  <!-- Image on Right (Split into Two Halves) -->
+  <div class="ms-md-4 mt-4 mt-md-0 text-center" style="min-width:500px;">
+    <!-- Top Half (Always Visible) -->
+    <img src="infographic1.jpg" alt="Infographic Top Half" class="img-fluid rounded shadow"
+     style="width: 300px; max-width: 100%; border-radius: 15px; display: block; margin-bottom: 0;margin-left: 70px;">
+
+
+    <!-- Bottom Half (Initially Hidden) -->
+    <img src="infographic1cont.jpg" alt="Infographic Bottom Half" class="img-fluid rounded shadow bottomImage"
+      style="width: 300px; max-width: 100%; border-radius: 15px; display: none;margin-left: 70px;">
+  </div>
+</div>
+</div>
+
+<!-- Blog Post Card (swith video) -->
+<div class="container mb-5">
+  <div class="blog-card p-4 py-10" style="border-radius: 20px; margin-bottom: 100px;">
+    
+    <!-- Author Section -->
+    <div class="d-flex flex-column flex-md-row align-items-start mb-4">
+      <img src="jmghibili.png" alt="Author" class="rounded-circle shadow me-md-4 mb-3 mb-md-0" 
+        style="width: 100px; height: 100px; object-fit: cover; border: 4px solid #f3e5abd4;">
+      <div>
+        <h3 class="mb-1" style="font-family: 'Georgia', serif; color: rgb(57, 11, 141); padding-top: 20px;">
+        Activity 8: The PSA Video – A Call to Action
+        </h3>
+        <div class="text-muted" style="font-size: 1rem;">by John Emmanuel C. Calanao</div>
+      </div>
+    </div>
+
+<!-- Blog Content with Image on Right -->
+    <div class="d-flex flex-column flex-md-row align-items-start">
+  <div class="blog-content flex-grow-1" style="font-size: 1.1rem; color: #555; margin-bottom: none;">
+    <p style="text-indent: 2em; text-align: justify;">
+      
+    The thought experiment of reflecting on a PSA solidified the understanding that effective communication isn't merely about conveying information; it's about inspiring action. 
+     A successful PSA compels the audience to engage with the issue at hand, prompting reflection and motivating change. 
+      This activity underscores the power of persuasive rhetoric and strategic communication techniques in addressing social issues. 
+       It reinforced the need to tailor the message, delivery, and tone to the specific target audience and the issue’s complexity.
+    </p>
+
+     </div>
+  <!-- Video on Right -->
+  <div class="ms-md-4 mt-4 mt-md-0 text-center" style="min-width:500px;">
+    <video controls style="width: 450px; max-width: 100%; border-radius: 15px;">
+      <source src="psavideo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+  </div>
+
+<script>
+function showImage() {
+  document.getElementById("bottomImage").style.display = "block"; // Show bottom half
+}
+
+function hideImage() {
+  document.getElementById("bottomImage").style.display = "none"; // Hide bottom half again
+}
+</script>
+
+  </div>
+</div>
+<!-- Blog Post Card (separate from the blogs section) -->
+<div class="container mb-5">
+  <div class="blog-card p-4 py-10" style="border-radius: 20px;margin-bottom: 100px;">
+    <div class="d-flex flex-column flex-md-row align-items-left mb-10">
+      <img src="jmghibili.png" alt="Author" class="rounded-circle shadow me-md-4 mb-3 mb-md-0" style="width: 100px; height: 100px; object-fit: cover; border: 4px solid #f3e5abd4;">
+      <div>
+        <h3 class="mb-1" style="font-family: 'Georgia', serif; color: rgb(57, 11, 141);padding-top: 20px;">Overall Reflection: The Journey of Purposive Communication
+        <div class="text-muted" style="font-size: 1rem;">by John Emmanuel C. Calanao</div>
+      </div>
+    </div>
+    <div class="blog-content" style="font-size: 1.1rem; color: #555;text-align: justify;">
+        <p>
+        This whole experience wasn't just about communication skills; it was a journey of self-discovery.  
+        Each activity challenged me to think about my own communication style, my biases, and how important it is to adapt to different situations. 
+         Effective communication is a mix of theory, practice, cultural awareness, and constant self-improvement.
+          I'm definitely a more conscious and effective communicator now.
+      </p>
+  </div>
+  </div>
+
+<script>
+// See more/less for blog cards (including showing/hiding bottom images)
+document.querySelectorAll('.see-more-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    const blogCard = btn.closest('.d-flex.flex-column.flex-md-row.align-items-start');
+    if (blogCard) {
+      // Show the .bottomImage in this card
+      const bottomImg = blogCard.querySelector('.bottomImage');
+      if (bottomImg) bottomImg.style.display = 'block';
+    }
+    // Show more text if present
+    const blogContent = btn.closest('.blog-content');
+    if (blogContent) {
+      const moreText = blogContent.querySelector('.more-text');
+      if (moreText) moreText.style.display = 'block';
+      btn.style.display = 'none';
+    }
+  });
+});
+document.querySelectorAll('.see-less-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    const blogCard = btn.closest('.d-flex.flex-column.flex-md-row.align-items-start');
+    if (blogCard) {
+      // Hide the .bottomImage in this card
+      const bottomImg = blogCard.querySelector('.bottomImage');
+      if (bottomImg) bottomImg.style.display = 'none';
+    }
+    // Hide more text if present
+    const blogContent = btn.closest('.blog-content');
+    if (blogContent) {
+      const moreText = blogContent.querySelector('.more-text');
+      if (moreText) moreText.style.display = 'none';
+      const seeMoreBtn = blogContent.querySelector('.see-more-btn');
+      if (seeMoreBtn) seeMoreBtn.style.display = 'inline-block';
+    }
+  });
+});
+document.getElementById('activity6-arrow').addEventListener('click', function() {
+  const img = document.getElementById('activity6-img');
+  if (img.src.includes('resume.jpg')) {
+    img.src = 'applicationletter.jpg';
+    img.alt = 'Application Letter';
+    this.innerHTML = '<i class="bi bi-arrow-left" style="font-size: 1rem;"></i>';
+  } else {
+    img.src = 'resume.jpg';
+    img.alt = 'Resume';
+    this.innerHTML = '<i class="bi bi-arrow-right" style="font-size: 1rem;"></i>';
+  }
+});
+</script>
+
+<!-- Contact Me Section -->
+<section id="contact" class="main-section py-5 mb-5" style="background: linear-gradient(to bottom, #ffffffd2 60%, #b2dfdb 100%); border-radius: 20px; box-shadow: 0 8px 32px rgba(60,60,60,0.08); min-height: 60vh;box-sizing: border-box;">
+  <div class="container">
+    <h2 class="text-center mb-4" style="font-family: 'Georgia', serif; color: #03074b;">Contact Me!</h2>
+    <div class="text-center mt-4">
+      <p style="font-size: 1rem; color: #03074b;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, serif, cursive;">
+        I would love to hear from you! Feel free to reach out with any questions or just to say hi.
+        
+      </p>
+   <form id="contactForm">
+  <div class="row mb-3">
+    <div class="col-md-6 mb-3 mb-md-0">
+      <input type="text" class="form-control" placeholder="Name">
+    </div>
+    <div class="col-md-6">
+      <input type="email" class="form-control" placeholder="Email">
+    </div>
+  </div>
+  <div class="mb-3">
+    <textarea class="form-control" rows="6" placeholder="Message" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-dark px-4">Send Message</button>
+  <div id="sentMessage" class="mt-3 text-success fw-bold" style="display:none;">
+    MESSAGE SENT!
+  </div>
+  <div class="mt-4 gap-6 align-items-center">
+    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align:center">or Visit</p>
+    <a href="https://www.facebook.com/profile.php?id=100078933019471" target="_blank" class="text-dark fs-3" aria-label="Facebook"><i class="bi bi-facebook"style="padding-right: 20px"></i></a>
+    <a href="https://www.instagram.com/jmcalanao?igsh=YjFvZGNscXQyaTBw" target="_blank" class="text-dark fs-3" aria-label="Instagram"><i class="bi bi-instagram"style="padding-right: 20px"></i></a>
+    <a href="tel:+639512073965" class="text-dark fs-3" aria-label="Phone"><i class="bi bi-telephone" style="padding-right: 20px"></i></a>
+    <a href="mailto:jmcalanao49@gmail.com"class="text-dark fs-3" aria-label="Email"><i class="bi bi-envelope"style="padding-right: 20px"></i></a>
+  </div>
+    </form>
+    <script>
+  // Show "Sent message!" after form submit
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('sentMessage').style.display = 'block';
+    // Optionally clear the form:
+    this.reset();
+    // Optionally hide the message after a few seconds:
+    setTimeout(() => {
+      document.getElementById('sentMessage').style.display = 'none';
+    }, 5000);
+  });
+</script>
+  </div>
+</section>
+
+  <footer class="text-center mt-4" style="color: #fff;">
+    <p>&copy; 2025 MsSMC. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
